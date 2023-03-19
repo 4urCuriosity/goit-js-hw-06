@@ -5,8 +5,6 @@ ingredients.forEach(ingredient => {
   ingredientItemEl.textContent = `${ingredient}`;
   ingredientItemEl.classList.add('item');
 
-  console.log(ingredientItemEl);
-
   const ingredientListEl = document.querySelector('ul#ingredients');
   ingredientListEl.append(ingredientItemEl);
 });
