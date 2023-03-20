@@ -20,9 +20,29 @@ function onDestroyBtnClick() {
   boxesOutputEl.innerHTML = '';
 }
 
+//!----1 вариант решения через append
+
+// function createBoxes(amount) {
+//   onDestroyBtnClick();
+//   let initialBoxSize = 20;
+//   for (let i = 0; i < amount; i += 1) {
+//     initialBoxSize += 10;
+//     const boxToCreate = document.createElement('div');
+//     boxToCreate.style.background = getRandomHexColor();
+//     boxToCreate.style.width = `${initialBoxSize}px`;
+//     boxToCreate.style.height = `${initialBoxSize}px`;
+
+//     boxesOutputEl.append(boxToCreate);
+//   }
+// }
+
+//!----2 вариант решения через insertAdjacentHTML
+
 function createBoxes(amount) {
   onDestroyBtnClick();
   let initialBoxSize = 20;
+  const boxesMarkup = [];
+
   for (let i = 0; i < amount; i += 1) {
     initialBoxSize += 10;
     const boxToCreate = document.createElement('div');
@@ -30,6 +50,8 @@ function createBoxes(amount) {
     boxToCreate.style.width = `${initialBoxSize}px`;
     boxToCreate.style.height = `${initialBoxSize}px`;
 
-    boxesOutputEl.append(boxToCreate);
+    boxesMarkup.push(boxToCreate.outerHTML);
   }
+
+  boxesOutputEl.insertAdjacentHTML('beforeend', boxesMarkup.join(''));
 }
