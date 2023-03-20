@@ -14,7 +14,6 @@ const images = [
 ];
 
 const galleryEl = document.querySelector('ul.gallery');
-console.log(galleryEl);
 
 const imagesElMarkup = images
   .map(({ url, alt }) => {
