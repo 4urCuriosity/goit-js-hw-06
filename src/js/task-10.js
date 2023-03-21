@@ -39,6 +39,12 @@ function onDestroyBtnClick() {
 //!----2 вариант решения через insertAdjacentHTML
 
 function createBoxes(amount) {
+  if (amount > 100) {
+    alert('Выберите значение от 1 до 100');
+    inputValueEl.value = 1;
+    return;
+  }
+
   onDestroyBtnClick();
   let initialBoxSize = 20;
   const boxesMarkup = [];
